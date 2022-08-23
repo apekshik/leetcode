@@ -64,3 +64,4 @@ mat = [
 ans = {1, 4, 5, 6}
 ans2 = S.riverSizes(S, mat)
 print(ans == set(ans2))
+print(ans2)
