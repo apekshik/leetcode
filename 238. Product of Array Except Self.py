@@ -8,6 +8,7 @@ class Solution:
         res = [1] * len(nums)
 
         prefix = 1
+        # the prefix calculation is pretty obvious. 
         for i in range(len(nums)):
             res[i] *= prefix
             prefix *= nums[i]
