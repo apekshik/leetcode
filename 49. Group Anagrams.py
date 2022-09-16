@@ -27,6 +27,9 @@ class Solution:
             temp = ''.join(sorted(word)) 
             # if the anagram key doesn't exist, add it to anagrams{} 
             if temp not in anagrams:
+                # make sure to add a list with the square bracket notation. 
+                # Or else the interpreter assumes you added just a string and 
+                # the append() function throws an error. 
                 anagrams[temp] = [word] # create a new bucket for new word and its anagrams. 
             else: 
                 anagrams[temp].append(word)
