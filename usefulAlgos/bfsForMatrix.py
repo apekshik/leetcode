@@ -6,6 +6,7 @@ def bfs(matrix, starting_points):
 
     rows, cols = len(matrix), len(matrix[0])
     visited = set()
+    # this algorithm works with multiple start points for the traversal. 
     queue = deque(starting_points)
 
     while queue:
