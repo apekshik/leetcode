@@ -1,39 +1,27 @@
-from collections import deque
+from typing import List
 
-def bfs(matrix, starting_points):
-    if not matrix:
-        return
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        # has to be backtracking. We use a stringbuilder variable to store the 
+        # currently created string. We return once the stringbuildder length is twice n. 
+        res = []
+        sb = ''
+        def rec(sb, leftParenthesesLeft, rightParenthesesLeft):
+            # base case
+            if len(sb) == n * 2: 
+                res.append(sb)
+                sb = sb[:-1]
+                return 
+            # recursive step
+            if leftParenthesesLeft > 0: 
+                rec(sb + '(', leftParenthesesLeft-1, rightParenthesesLeft)
+            if rightParenthesesLeft > 0 and rightParenthesesLeft > leftParenthesesLeft: 
+                rec(sb + ')', leftParenthesesLeft, rightParenthesesLeft-1)
 
-    rows, cols = len(matrix), len(matrix[0])
-    visited = set()
-    queue = deque(starting_points)
+        rec(sb, n, n)
 
-    while queue:
-        x, y = queue.popleft()
-        if (x, y) not in visited:
-            visited.add((x, y))
-            # Process the current cell here, e.g., print it
-            print(matrix[x][y])
+        return res 
 
-            # Define possible neighboring directions (up, down, left, right)
-            directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+S = Solution() 
 
-            # Add neighboring cells to the queue
-            for dx, dy in directions:
-                new_x, new_y = x + dx, y + dy
-                if 0 <= new_x < rows and 0 <= new_y < cols and (new_x, new_y) not in visited:
-                    queue.append((new_x, new_y))
-
-# Example usage:
-# Define your 2D matrix
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-# Specify multiple starting points as a list of (x, y) coordinates
-starting_points = [(0, 0), (1, 1), (2, 2)]
-
-# Start BFS from all starting points simultaneously
-bfs(matrix, starting_points)
+print(S.generateParenthesis(3))

@@ -1,5 +1,10 @@
 # Arrays
 array = [1, 2, 3, 4, 5]
+my_list = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
+
+# to find max in a list. 
+max_value = max(my_list)
+print(f"The maximum value in the list is: {max_value}")
 
 # Sets
 set_data = {1, 2, 3, 4, 5}
@@ -48,6 +53,11 @@ dictionary = {'key1': 'value1', 'key2': 'value2'}
 # Queues
 from collections import deque
 queue = deque(['a', 'b', 'c'])
+queue = deque() # for empty queue init. 
+queue.append('a') # to add to the right side of the queue 
+queue.appendleft('b') # append to left side of queue. 
+queue.pop() # pop pops from the right end of the queue.
+queue.popleft() # pops from the left end of the queue. 
 
 # Stacks
 stack = [1, 2, 3]
