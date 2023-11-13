@@ -50,6 +50,21 @@ class ListNode:
 # Dictionary (hash map)
 dictionary = {'key1': 'value1', 'key2': 'value2'}
 
+# Sorting in Dictionaries.
+my_dict = {'c': 3, 'a': 1, 'd': 4, 'b': 2}
+
+# Sort the dictionary by keys in ascending order
+sorted_dict = dict(sorted(my_dict.items()))
+
+# Sorting dictionaries in ascending order by values.
+my_dict = {'c': 3, 'a': 1, 'd': 4, 'b': 2}
+
+# Sort the dictionary by values in ascending order
+sorted_dict = dict(sorted(my_dict.items(), key=lambda item: item[1]))
+
+print(sorted_dict)
+print(sorted_dict)
+
 # Queues
 from collections import deque
 queue = deque(['a', 'b', 'c'])
